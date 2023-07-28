@@ -1,0 +1,26 @@
+{
+  "name": "acme-example",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/acme/example/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/acme/example",
+        "main": "packages/acme/example/src/index.ts",
+        "tsConfig": "packages/acme/example/tsconfig.lib.json",
+        "assets": ["packages/acme/example/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/acme/example/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}
